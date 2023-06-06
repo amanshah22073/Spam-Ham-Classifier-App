@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>The text that has been entered is classified as {{result}} by the model</h1>
+    <div class="container">
+        <h1>The Text has been classified as <b><u>{{result}}</u></b></h1>
+    </div>
 </body>
 </html>
