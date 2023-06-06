@@ -5,19 +5,24 @@ model =  pickle.load(open('model.pkl' , 'rb'))
 vectorizer =  pickle.load(open('vectorizer.pkl' , 'rb'))
 
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return render_template('Input.html')
 
-@app.route('/result' , methods = ['POST' , 'GET'])
+
+
+@app.route("/Result" , methods = ['POST'])
 def check_result():
-    Text = request.form(['text'])
+    Text = request.form['Text']
     clean_text = preprocessing_pipeline(Text)
-    token = vectorizer.transform(clean_text)
+    token = vectorizer.transform([clean_text])
     pred = model.predict(token)
     if pred == 1:
-        result = 'spam'
+        output = 'spam'
     else:
-        result = 'not spam'
+        output = 'not spam'
         
-    return result        
+    return render_template('result.html', result = output)        
         
     
     
