@@ -18,9 +18,9 @@ def check_result():
     token = vectorizer.transform([clean_text])
     pred = model.predict(token)
     if pred == 1:
-        output = 'spam'
+        output = 'Spam'
     else:
-        output = 'not spam'
+        output = 'Not Spam'
         
     return render_template('result.html', result = output)        
         
